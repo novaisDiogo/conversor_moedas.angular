@@ -1,5 +1,5 @@
 <br />
-<div class="alert alert-danger" role="alert">
+<div class="alert alert-danger" role="alert" *ngIf="possuiErro">
     Erro obtendo dados. Tente novamente.
 </div>
 <div class="card">
@@ -7,19 +7,21 @@
         Selecione a moeda a ser convertida
     </div>
     <div class="card-body text-center">
-        <form class="row d-flex justify-content-center">
+        <form #conversaoForm="ngForm" class="row d-flex justify-content-center">
             <div class="col-auto">
                 <label for="inputPassword6" class="col-form-label">Value</label>
             </div>
             <div class="col-auto">
-                <input type="text" name="valor" class="form-control text-right" placeholder="0" required>
+                <input type="text" name="valor" class="form-control text-right" placeholder="0"
+                    [(ngModel)]="conversao.valor" required>
             </div>
             <div class="col-auto">
                 <label for="inputPassword6" class="col-form-label">From</label>
             </div>
             <div class="col-auto">
-                <select name="moedaDe" class="form-select" required>
-                    <option>
+                <select name="moedaDe" class="form-select" [(ngModel)]="conversao.moedaDe" required>
+                    <option *ngFor="let moeda of moedas" [value]="moeda.sigla">
+                        {{moeda.sigla}} - {{moeda.descricao}}
                     </option>
                 </select>
             </div>
@@ -27,15 +29,16 @@
                 <label for="inputPassword6" class="col-form-label">To</label>
             </div>
             <div class="col-auto">
-                <select name="moedaPara" class="form-select" required>
-                    <option>
+                <select name="moedaPara" class="form-select" [(ngModel)]="conversao.moedaPara" required>
+                    <option *ngFor="let moeda of moedas" [value]="moeda.sigla">
+                        {{moeda.sigla}} = {{moeda.descricao}}
                     </option>
                 </select>
             </div>
             <div class="col-auto">
-                <input type="submit" value="Converter" class="btn btn-success">
+                <input type="submit" value="Converter" class="btn btn-success" (click)="converter()"
+                    [disabled]="!conversaoForm.form.valid">
             </div>
-
         </form>
     </div>
 </div>

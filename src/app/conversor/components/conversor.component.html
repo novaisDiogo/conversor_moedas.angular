@@ -1,1 +1,41 @@
-<p>conversor works!</p>
+<br />
+<div class="alert alert-danger" role="alert">
+    Erro obtendo dados. Tente novamente.
+</div>
+<div class="card">
+    <div class="card-header bg-success text-white">
+        Selecione a moeda a ser convertida
+    </div>
+    <div class="card-body text-center">
+        <form class="row d-flex justify-content-center">
+            <div class="col-auto">
+                <label for="inputPassword6" class="col-form-label">Value</label>
+            </div>
+            <div class="col-auto">
+                <input type="text" name="valor" class="form-control text-right" placeholder="0" required>
+            </div>
+            <div class="col-auto">
+                <label for="inputPassword6" class="col-form-label">From</label>
+            </div>
+            <div class="col-auto">
+                <select name="moedaDe" class="form-select" required>
+                    <option>
+                    </option>
+                </select>
+            </div>
+            <div class="col-auto">
+                <label for="inputPassword6" class="col-form-label">To</label>
+            </div>
+            <div class="col-auto">
+                <select name="moedaPara" class="form-select" required>
+                    <option>
+                    </option>
+                </select>
+            </div>
+            <div class="col-auto">
+                <input type="submit" value="Converter" class="btn btn-success">
+            </div>
+
+        </form>
+    </div>
+</div>

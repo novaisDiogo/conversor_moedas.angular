@@ -34,13 +34,13 @@ export class ConversorComponent implements OnInit {
     if (this.conversaoForm.form.valid) {
       this.conversorService
         .converter(this.conversao)
-        .subscribe(
-          (response) => {
-            this.conversaoResponse = response;
-            this.possuiErro = response.error ? true : null;
+        .subscribe({
+          next: (v) => {
+            this.conversaoResponse = v;
+            this.possuiErro = v.error ? true : null;
           },
-          error => this.possuiErro = true
-        );
+          error: (e) => this.possuiErro = true
+        });
     }
   }
 

@@ -37,8 +37,12 @@
             </div>
             <div class="col-auto">
                 <input type="submit" value="Converter" class="btn btn-success" (click)="converter()"
-                    [disabled]="!conversaoForm.form.valid">
+                    data-bs-toggle="modal" data-bs-target="#modalCotacao" [disabled]="!conversaoForm.form.valid">
             </div>
         </form>
     </div>
 </div>
+<modal-cotacao [id]="'modalCotacao'" [conversaoResponse]="conversaoResponse" [conversao]="conversao"
+    (onConfirm)="init()">
+
+</modal-cotacao>

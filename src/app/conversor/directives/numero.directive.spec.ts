@@ -1,8 +1,10 @@
 import { NumeroDirective } from './numero.directive';
+import { Directive, HostListener, ElementRef } from '@angular/core';
 
 describe('NumeroDirective', () => {
   it('should create an instance', () => {
-    const directive = new NumeroDirective();
+    let el: ElementRef;
+    const directive = new NumeroDirective(el);
     expect(directive).toBeTruthy();
   });
 });
